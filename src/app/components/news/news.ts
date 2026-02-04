@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { NewsCard } from "./news-card/news-card";
 
 @Component({
   selector: 'news',
-  imports: [],
+  imports: [NewsCard],
   templateUrl: './news.html',
   styleUrl: './news.sass',
 })
