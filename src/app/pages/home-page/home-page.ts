@@ -9,4 +9,4 @@ import { Carousel } from '../../components/carousel/carousel';
   templateUrl: './home-page.html',
   styleUrl: './home-page.sass',
 })
-export class HomePage {}
+export default class HomePage {}
