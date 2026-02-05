@@ -1,8 +1,8 @@
-<li class="flex w-auto h-[482px] list-none" tabindex="0" [attr.aria-label]="'Otras noticias ' + index + ' de ' + total + ': ' + item.title">
+<li class="flex w-auto h-[482px] list-none relative" tabindex="0" [attr.aria-label]="'Otras noticias ' + index + ' de ' + total + ': ' + item.title">
 
   <!-- imagen de fondo -->
-  <figure class="">
-    <img class="absolute rounded-[8px]" [src]="item.imageUrl" [alt]="'Imagen de ' + item.title">
+  <figure>
+    <img class="absolute inset-0 w-full h-full object-cover rounded-[8px]" [src]="item.imageUrl" [alt]="'Imagen de ' + item.title">
   </figure>
 
   <!-- info del item -->

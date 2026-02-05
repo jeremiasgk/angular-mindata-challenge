@@ -1,5 +1,5 @@
 <section class="max-w-[1542px] w-full mx-auto h-auto" aria-label="Noticias" tabindex="0">
-  <div class="flex flex-col w-[1542px] gap-[32px]">
+  <div class="flex flex-col w-[1542px] gap-[48px]">
 
     <!-- Cabecera -->
     <div class="flex flex-col gap-6">
@@ -24,14 +24,10 @@
     </div>
 
     <!-- Contenedor de tarjetas de noticias -->
-    <div class="flex flex-col h-auto gap-[32px]">
-
-      <!-- fila 1 -->
-      <div class="flex flex-row flex-wrap max-w-[1542px] gap-[32px]" role="list" aria-label="Lista de noticias" tabindex="0">
-        @for (item of newsList; track item.id; let i = $index, count = $count) {
-          <news-card [item]="item" [index]="i + 1" [total]="count" role="listitem"/>
-        }
-      </div>
+    <div class="flex flex-row flex-wrap max-w-[1542px] gap-[32px]" role="list" aria-label="Lista de noticias" tabindex="0">
+      @for (item of newsList; track item.id; let i = $index, count = $count) {
+        <news-card [item]="item" [index]="i + 1" [total]="count" role="listitem"/>
+      }
     </div>
   </div>
 </section>
