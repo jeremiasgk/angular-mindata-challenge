@@ -1,6 +1,6 @@
 <article class="flex flex-col cursor-pointer w-[492px] h-[570px] gap-[16px]" tabindex="0" [attr.aria-label]="'Noticia ' + index + ' de ' + total + ': ' + item.title">
-  <figure>
-    <img class="w-full h-auto md:h-full object-cover rounded-lg" [src]="item.imageUrl" alt="News article thumbnail" aria-hidden="true">
+  <figure class="relative overflow-hidden rounded-lg">
+    <img class="w-full h-auto md:h-full object-cover rounded-lg object-cover transition-transform duration-500 ease-in-out hover:scale-110" [src]="item.imageUrl" alt="News article thumbnail" aria-hidden="true">
   </figure>
   <div class="flex flex-row gap-2">
     <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
