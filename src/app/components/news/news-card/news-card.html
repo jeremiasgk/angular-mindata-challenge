@@ -1,4 +1,4 @@
-<article class="flex flex-col cursor-pointer w-[492px] h-[570px] gap-[16px]" tabindex="0" [attr.aria-label]="'Noticia ' + index + ' de ' + total + ': ' + item.title">
+<article class="flex flex-col cursor-pointer w-full h-full gap-[16px]" tabindex="0" [attr.aria-label]="'Noticia ' + index + ' de ' + total + ': ' + item.title">
   <figure class="relative overflow-hidden rounded-lg">
     <img class="w-full h-auto md:h-full object-cover rounded-lg object-cover transition-transform duration-500 ease-in-out hover:scale-110" [src]="item.imageUrl" alt="News article thumbnail" aria-hidden="true">
   </figure>
@@ -10,6 +10,6 @@
       {{ item.tag }}
     </span>
   </div>
-  <h3 class="font-bold text-[30px] leading-[38px] font-inter">{{ item.title }}</h3>
+  <h3 class="font-bold text-[23px] leading-[25px] sm:text-[30px] sm:leading-[38px] font-inter">{{ item.title }}</h3>
   <p class="line-clamp-6 text-[#343A40] font-normal text-[16px] leading-[24px] font-inter">{{ item.description }}</p>
 </article>
