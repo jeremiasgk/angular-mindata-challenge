@@ -1,4 +1,4 @@
-<article class="flex flex-col w-[492px] h-[570px] gap-[16px]" tabindex="0">
+<article class="flex flex-col cursor-pointer w-[492px] h-[570px] gap-[16px]" tabindex="0" [attr.aria-label]="'Noticia ' + index + ' de ' + total + ': ' + item.title">
   <figure>
     <img class="w-full h-auto md:h-full object-cover rounded-lg" [src]="item.imageUrl" alt="News article thumbnail" aria-hidden="true">
   </figure>

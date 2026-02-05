@@ -4,10 +4,11 @@
     <p class="font-['Inter'] font-normal text-base leading-6" tabindex="0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum auctor ornare leo, non suscipit magna interdum eu. Curabitur pellentesque nibh nibh, at maximus ante fermentum sit amet. Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam condimentum, vel euismod erat placerat. In iaculis arcu eros, eget tempus orci facilisis id.</p>
   </div>
 
-  <ul class="flex flex-row mx-auto items max-w-[1542px] h-[482px] gap-8" role="list" aria-label="Lista de otras noticias" tabindex="0">
-    <carousel-item class="list-none" role="listitem"/>
-    <carousel-item class="list-none" role="listitem"/>
-    <carousel-item class="list-none" role="listitem"/>
-    <carousel-item class="list-none" role="listitem"/>
+  <ul #carouselContainer class="flex flex-row mx-auto items w-full max-w-[1542px] h-[482px] gap-8 overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing select-none focus:outline-none"
+      style="scrollbar-width: none; -ms-overflow-style: none;"
+      role="list" aria-label="Lista de otras noticias" tabindex="0">
+    @for (item of items; track item.id; let i = $index, count = $count) {
+      <carousel-item [item]="item" [index]="i + 1" [total]="count" class="list-none shrink-0" role="listitem"/>
+    }
   </ul>
 </section>

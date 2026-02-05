@@ -27,9 +27,9 @@
     <div class="flex flex-col h-auto gap-[32px]">
 
       <!-- fila 1 -->
-      <div class="flex flex-row flex-wrap max-w-[1542px] gap-[32px]" role="Lista de Noticias" tabindex="0">
-        @for (item of newsList; track item.id) {
-          <news-card [item]="item" role="listitem"/>
+      <div class="flex flex-row flex-wrap max-w-[1542px] gap-[32px]" role="list" aria-label="Lista de noticias" tabindex="0">
+        @for (item of newsList; track item.id; let i = $index, count = $count) {
+          <news-card [item]="item" [index]="i + 1" [total]="count" role="listitem"/>
         }
       </div>
     </div>

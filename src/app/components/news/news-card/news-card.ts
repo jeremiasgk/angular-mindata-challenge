@@ -9,4 +9,6 @@ import { NewsItem } from '../../../interfaces/news.interface';
 })
 export class NewsCard {
   @Input() item!: NewsItem;
+  @Input() index: number = 0;
+  @Input() total: number = 0;
 }
