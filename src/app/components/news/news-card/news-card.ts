@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NewsItem } from '../../../interfaces/news.interface';
 
 @Component({
   selector: 'news-card',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './news-card.html',
   styleUrl: './news-card.sass',
 })
-export class NewsCard { }
+export class NewsCard {
+  @Input() item!: NewsItem;
+}

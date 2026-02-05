@@ -1,13 +1,13 @@
-<section class="max-w-[1542px] w-full mx-auto h-auto">
+<section class="max-w-[1542px] w-full mx-auto h-auto" aria-label="Noticias" tabindex="0">
   <div class="flex flex-col w-[1542px] gap-[32px]">
 
     <!-- Cabecera -->
     <div class="flex flex-col gap-6">
-      <h3 class="text-[48px] leading-[58px] font-bold font-inter">Lorem ipsum dolor sit</h3>
+      <h2 class="text-[48px] leading-[58px] font-bold font-inter" tabindex="0">Lorem ipsum dolor sit</h2>
 
       <!-- Subtitulo y barra de busqueda -->
       <div class="flex flex-row justify-between gap-4 items-center">
-        <h1 class="text-[18px] leading-7 font-normal font-inter">Lorem ipsum dolor sit</h1>
+        <h3 class="text-[18px] leading-7 font-normal font-inter" tabindex="0">Lorem ipsum dolor sit</h3>
 
         <!-- boton y Barra de busqueda -->
         <div class="flex justify-end flex-row gap-4">
@@ -17,7 +17,7 @@
             <svg class="size-[16px] cursor-pointer text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
             </svg>
-            <input type="text" placeholder="" class="flex-1 h-[40px] w-auto focus:outline-none">
+            <input type="text" placeholder="" aria-label="Buscar noticias" class="flex-1 h-[40px] w-auto focus:outline-none">
           </div>
         </div>
       </div>
@@ -27,17 +27,10 @@
     <div class="flex flex-col h-auto gap-[32px]">
 
       <!-- fila 1 -->
-      <div class="flex flex-row gap-[32px]">
-        <news-card/>
-        <news-card/>
-        <news-card/>
-      </div>
-
-      <!-- fila 2 -->
-      <div class="flex flex-row gap-[32px]">
-        <news-card/>
-        <news-card/>
-        <news-card/>
+      <div class="flex flex-row flex-wrap max-w-[1542px] gap-[32px]" role="Lista de Noticias" tabindex="0">
+        @for (item of newsList; track item.id) {
+          <news-card [item]="item" role="listitem"/>
+        }
       </div>
     </div>
   </div>
