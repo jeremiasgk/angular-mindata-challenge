@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, viewChild } from '@angular/core';
 import { CarouselItem } from './carousel-item/carousel-item';
 import { CarouselItem as ICarouselItem } from '../../interfaces/carousel.interface';
 
@@ -8,9 +8,9 @@ import { CarouselItem as ICarouselItem } from '../../interfaces/carousel.interfa
   templateUrl: './carousel.html',
   styleUrl: './carousel.sass',
 })
-export class Carousel implements AfterViewInit {
-  @ViewChild('carouselContainer')
-  carouselContainer!: ElementRef<HTMLUListElement>;
+export class Carousel {
+  carouselContainer =
+    viewChild.required<ElementRef<HTMLUListElement>>('carouselContainer');
 
   items: ICarouselItem[] = Array(4)
     .fill(null)
@@ -25,42 +25,39 @@ export class Carousel implements AfterViewInit {
   private startX = 0;
   private scrollLeft = 0;
 
-  ngAfterViewInit() {
-    const slider = this.carouselContainer.nativeElement;
+  onMouseDown(e: MouseEvent) {
+    this.isDown = true;
+    const slider = this.carouselContainer().nativeElement;
+    slider.classList.add('active');
+    this.startX = e.pageX - slider.offsetLeft;
+    this.scrollLeft = slider.scrollLeft;
+  }
 
-    // Mouse Events for Dragging
-    slider.addEventListener('mousedown', (e) => {
-      this.isDown = true;
-      slider.classList.add('active');
-      this.startX = e.pageX - slider.offsetLeft;
-      this.scrollLeft = slider.scrollLeft;
-    });
+  onMouseLeave() {
+    this.isDown = false;
+    this.carouselContainer().nativeElement.classList.remove('active');
+  }
 
-    slider.addEventListener('mouseleave', () => {
-      this.isDown = false;
-      slider.classList.remove('active');
-    });
+  onMouseUp() {
+    this.isDown = false;
+    this.carouselContainer().nativeElement.classList.remove('active');
+  }
 
-    slider.addEventListener('mouseup', () => {
-      this.isDown = false;
-      slider.classList.remove('active');
-    });
+  onMouseMove(e: MouseEvent) {
+    if (!this.isDown) return;
+    e.preventDefault();
+    const slider = this.carouselContainer().nativeElement;
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - this.startX) * 2;
+    slider.scrollLeft = this.scrollLeft - walk;
+  }
 
-    slider.addEventListener('mousemove', (e) => {
-      if (!this.isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - this.startX) * 2; // Scroll-fast
-      slider.scrollLeft = this.scrollLeft - walk;
-    });
-
-    // Keyboard Events for Arrow Keys
-    slider.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        slider.scrollBy({ left: 300, behavior: 'smooth' });
-      } else if (e.key === 'ArrowLeft') {
-        slider.scrollBy({ left: -300, behavior: 'smooth' });
-      }
-    });
+  onKeyDown(e: KeyboardEvent) {
+    const slider = this.carouselContainer().nativeElement;
+    if (e.key === 'ArrowRight') {
+      slider.scrollBy({ left: 300, behavior: 'smooth' });
+    } else if (e.key === 'ArrowLeft') {
+      slider.scrollBy({ left: -300, behavior: 'smooth' });
+    }
   }
 }

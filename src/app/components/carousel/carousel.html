@@ -6,7 +6,12 @@
 
   <ul #carouselContainer class="flex flex-row mx-auto items w-full max-w-[1542px] h-[482px] gap-8 overflow-x-auto overflow-y-hidden cursor-grab active:cursor-grabbing select-none focus:outline-none"
       style="scrollbar-width: none; -ms-overflow-style: none;"
-      role="list" aria-label="Lista de otras noticias" tabindex="0">
+      role="list" aria-label="Lista de noticias" tabindex="0"
+      (mousedown)="onMouseDown($event)"
+      (mouseleave)="onMouseLeave()"
+      (mouseup)="onMouseUp()"
+      (mousemove)="onMouseMove($event)"
+      (keydown)="onKeyDown($event)">
     @for (item of items; track item.id; let i = $index, count = $count) {
       <carousel-item [item]="item" [index]="i + 1" [total]="count" class="list-none shrink-0" role="listitem"/>
     }

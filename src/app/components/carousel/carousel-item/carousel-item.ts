@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CarouselItem as ICarouselItem } from '../../../interfaces/carousel.interface';
 
 @Component({
@@ -8,7 +8,7 @@ import { CarouselItem as ICarouselItem } from '../../../interfaces/carousel.inte
   styleUrl: './carousel-item.sass',
 })
 export class CarouselItem {
-  @Input() item!: ICarouselItem;
-  @Input() index: number = 0;
-  @Input() total: number = 0;
+  item = input.required<ICarouselItem>();
+  index = input<number>(0);
+  total = input<number>(0);
 }

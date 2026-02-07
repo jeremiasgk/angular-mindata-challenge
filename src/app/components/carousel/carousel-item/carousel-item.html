@@ -1,22 +1,17 @@
-<li class="flex w-auto h-[482px] list-none relative" tabindex="0" [attr.aria-label]="'Otras noticias ' + index + ' de ' + total + ': ' + item.title">
+<li class="flex w-auto h-[482px] list-none relative" tabindex="0" [attr.aria-label]="'Otras noticias ' + index() + ' de ' + total() + ': ' + item().title">
 
-  <!-- imagen de fondo -->
   <figure>
-    <img class="absolute inset-0 w-full h-full object-cover rounded-[8px]" [src]="item.imageUrl" [alt]="'Imagen de ' + item.title">
+    <img class="absolute inset-0 w-full h-full object-cover rounded-[8px]" [src]="item().imageUrl" [alt]="'Imagen de ' + item().title">
   </figure>
 
-  <!-- info del item -->
   <div class="flex flex-col justify-between self-end p-[16px] relative w-[362px] h-[175px] bg-gradient-to-b from-transparent to-black rounded-[8px] gap-[8px]">
     <div class="flex flex-col gap-[8px]">
 
-      <!-- titulo del item -->
-      <h3 class="font-bold text-[30px] font-inter leading-[38px] text-neutral-100" aria-hidden="true">{{ item.title }}</h3>
+      <h3 class="font-bold text-[30px] font-inter leading-[38px] text-neutral-100" aria-hidden="true">{{ item().title }}</h3>
 
-      <!-- descripcion del item -->
-      <p class="font-normal font-inter text-[16px] leading-[24px] text-neutral-100" aria-hidden="true">{{ item.description }}</p>
+      <p class="font-normal font-inter text-[16px] leading-[24px] text-neutral-100" aria-hidden="true">{{ item().description }}</p>
     </div>
 
-    <!-- ver más -->
     <button type="button" class="flex flex-row cursor-pointer text-neutral-100 gap-[4px] w-fit bg-transparent border-none p-0 items-center" aria-label="Ver más detalles">
       <span class="font-bold font-inter text-[16px] leading-[24px]" aria-hidden="true">Ver más</span>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" aria-hidden="true">

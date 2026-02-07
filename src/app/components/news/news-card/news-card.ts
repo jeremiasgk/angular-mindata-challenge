@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { NewsItem } from '../../../interfaces/news.interface';
 
 @Component({
@@ -8,7 +8,7 @@ import { NewsItem } from '../../../interfaces/news.interface';
   styleUrl: './news-card.sass',
 })
 export class NewsCard {
-  @Input() item!: NewsItem;
-  @Input() index: number = 0;
-  @Input() total: number = 0;
+  item = input.required<NewsItem>();
+  index = input<number>(0);
+  total = input<number>(0);
 }
